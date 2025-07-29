@@ -1,5 +1,4 @@
-// Package main cung cấp các hàm và cấu trúc để xử lý response HTTP API
-package main
+package response
 
 import (
 	"github.com/gin-gonic/gin"
