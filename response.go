@@ -119,7 +119,7 @@ func Ok(code int, message string) *Response {
 	return New().
 		WithSuccess(true).
 		WithCode(code).
-		WithMessage(msg(message, code))
+		WithMessage(Msg(message, code))
 }
 
 // Err tạo một response lỗi với mã và thông báo được chỉ định
@@ -127,11 +127,11 @@ func Err(code int, message string) *Response {
 	return New().
 		WithSuccess(false).
 		WithCode(code).
-		WithMessage(msg(message, code))
+		WithMessage(Msg(message, code))
 }
 
-// msg trả về thông báo tùy chỉnh hoặc thông báo mặc định dựa trên mã HTTP
-func msg(message string, code int) string {
+// Msg trả về thông báo tùy chỉnh hoặc thông báo mặc định dựa trên mã HTTP
+func Msg(message string, code int) string {
 	if message != "" {
 		return message
 	}
