@@ -74,6 +74,12 @@ func InternalServerError(c *gin.Context, message string, error any, data any) {
 	c.JSON(http.StatusInternalServerError, Err(http.StatusInternalServerError, message).WithError(error).WithData(data))
 }
 
+func Custom(c *gin.Context, code int, cb func(r *Response)) {
+	res := New()
+	cb(New())
+	c.JSON(code, res)
+}
+
 // New tạo một đối tượng Response mới với giá trị mặc định
 func New() *Response {
 	return &Response{
